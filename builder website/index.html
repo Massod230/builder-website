@@ -1,0 +1,1194 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildPro - Modern Construction & Builder Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbebee',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            dark: '#111827',
+                            charcoal: '#1f2937',
+                            light: '#f9fafb'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
+        }
+
+        .modal-active {
+            overflow: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(17, 24, 39, 0.82), rgba(17, 24, 39, 0.92)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #f59e0b;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #d97706;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- Top Information Bar -->
+    <div class="bg-gray-900 text-gray-300 text-xs sm:text-sm py-2 px-4 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:+18005550199" class="hover:text-amber-500 transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-amber-500"></i> +1 (800) 555-0199
+                </a>
+                <a href="mailto:info@buildpro.com" class="hover:text-amber-500 transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-amber-500"></i> info@buildpro-construct.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="hidden md:inline-block"><i class="fa-solid fa-clock text-amber-500 mr-1"></i> Mon - Sat: 8:00 AM - 6:00 PM</span>
+                <div class="flex space-x-3 text-sm">
+                    <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 shadow-xl transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 bg-amber-500 rounded-lg flex items-center justify-center text-gray-900 font-extrabold text-2xl shadow-lg shadow-amber-500/30 group-hover:bg-amber-400 transition">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-wider text-white">BUILD<span class="text-amber-500">PRO</span></span>
+                        <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Construct & Engineering</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 font-medium text-sm text-gray-300">
+                    <a href="#home" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Home</a>
+                    <a href="#services" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Services</a>
+                    <a href="#calculator" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Cost Calculator</a>
+                    <a href="#projects" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Projects</a>
+                    <a href="#process" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Process</a>
+                    <a href="#testimonials" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Testimonials</a>
+                    <a href="#contact" class="nav-link px-3 py-2 rounded-md hover:text-amber-500 hover:bg-gray-800/60 transition">Contact</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#contact" class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold px-5 py-2.5 rounded-lg shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition transform active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Home</a>
+            <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Services</a>
+            <a href="#calculator" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Cost Calculator</a>
+            <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Projects</a>
+            <a href="#process" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Process</a>
+            <a href="#testimonials" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Testimonials</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-amber-500">Contact</a>
+            <div class="pt-4">
+                <a href="#contact" class="block text-center w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold px-5 py-3 rounded-lg shadow-md transition">
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg relative min-h-[90vh] flex items-center justify-center text-white pt-12 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center z-10">
+            <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 rounded-full px-4 py-1.5 mb-6 text-amber-400 font-semibold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-sm">
+                <i class="fa-solid fa-certificate"></i> Certified ISO 9001:2026 Construction Leaders
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-6">
+                BUILDING TOMORROW'S <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-200">
+                    LANDMARKS TODAY
+                </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                From landmark commercial skyscrapers to luxury custom residences, BuildPro delivers precision engineering, uncompromising safety, and world-class architectural excellence.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#calculator" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calculator text-lg"></i> Calculate Project Cost
+                </a>
+                <a href="#projects" class="w-full sm:w-auto bg-gray-800/80 hover:bg-gray-800 text-white font-bold px-8 py-4 rounded-xl border border-gray-700 hover:border-gray-500 transition backdrop-blur-sm flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-city text-amber-500"></i> View Portfolio
+                </a>
+            </div>
+
+            <!-- Live Counter Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-4 sm:p-6 rounded-2xl text-center border-t-2 border-t-amber-500">
+                    <div class="text-3xl sm:text-4xl font-black text-amber-500 mb-1" id="stat-years">15+</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Years Experience</div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl text-center border-t-2 border-t-amber-500">
+                    <div class="text-3xl sm:text-4xl font-black text-amber-500 mb-1" id="stat-projects">350+</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Projects Built</div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl text-center border-t-2 border-t-amber-500">
+                    <div class="text-3xl sm:text-4xl font-black text-amber-500 mb-1" id="stat-safety">100%</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Safety Record</div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl text-center border-t-2 border-t-amber-500">
+                    <div class="text-3xl sm:text-4xl font-black text-amber-500 mb-1" id="stat-awards">48</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Design Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-600 font-extrabold text-sm uppercase tracking-widest mb-2">Our Capabilities</h2>
+                <p class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Full-Spectrum Construction & Engineering</p>
+                <div class="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Construction</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            High-capacity office towers, retail centers, warehouses, and industrial complexes engineered for durability and efficiency.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('commercial')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Residential Architecture</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Bespoke luxury residences, modern villas, and multi-unit luxury apartments built to suit your personalized lifestyle.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('residential')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Interior Renovation & Fit-Outs</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Complete structural remodeling, high-end interior styling, energy-efficient retrofitting, and space optimization.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('renovation')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-bridge"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Civil & Infrastructure</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Heavy civil engineering solutions including site prep, retaining walls, paved roads, and complex foundation systems.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('civil')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Project Management</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            End-to-end site oversight, real-time budgeting, material logistics, compliance checks, and timeline enforcement.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('management')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-amber-500 group-hover:text-gray-950 transition duration-300">
+                            <i class="fa-solid fa-ruler-combined"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Blueprints & Steel Structure</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Precision structural drafting, CAD Modeling, seismic load analysis, and pre-engineered steel erection.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('steel')" class="text-amber-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all group-hover:text-amber-700">
+                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Cost Calculator Section -->
+    <section id="calculator" class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-500 font-extrabold text-sm uppercase tracking-widest mb-2">Estimate Tool</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white tracking-tight">Interactive Construction Cost Calculator</p>
+                <p class="text-gray-400 mt-2 text-sm sm:text-base">Adjust parameters below to generate an instant preliminary project budget estimate.</p>
+                <div class="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Inputs Box -->
+                <div class="lg:col-span-7 bg-gray-800/80 p-6 sm:p-8 rounded-2xl border border-gray-700/80 shadow-2xl backdrop-blur-md space-y-6">
+                    
+                    <!-- Project Type -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-200 mb-3">1. Select Project Type</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" onclick="setProjectType('residential', 120)" id="btn-type-residential" class="calc-type-btn p-3 sm:p-4 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400 font-semibold text-center text-xs sm:text-sm flex flex-col items-center gap-2 transition">
+                                <i class="fa-solid fa-house text-xl"></i> Residential
+                            </button>
+                            <button type="button" onclick="setProjectType('commercial', 160)" id="btn-type-commercial" class="calc-type-btn p-3 sm:p-4 rounded-xl border border-gray-700 bg-gray-900 text-gray-300 font-semibold text-center text-xs sm:text-sm flex flex-col items-center gap-2 hover:border-gray-500 transition">
+                                <i class="fa-solid fa-building text-xl"></i> Commercial
+                            </button>
+                            <button type="button" onclick="setProjectType('renovation', 85)" id="btn-type-renovation" class="calc-type-btn p-3 sm:p-4 rounded-xl border border-gray-700 bg-gray-900 text-gray-300 font-semibold text-center text-xs sm:text-sm flex flex-col items-center gap-2 hover:border-gray-500 transition">
+                                <i class="fa-solid fa-hammer text-xl"></i> Renovation
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Area Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-bold text-gray-200">2. Total Area (Square Feet)</label>
+                            <span class="text-amber-400 font-black text-lg" id="area-val-display">2,500 sq ft</span>
+                        </div>
+                        <input type="range" id="calc-area" min="500" max="20000" step="250" value="2500" oninput="updateCalculator()" class="w-full h-3 bg-gray-900 rounded-lg appearance-none cursor-pointer range-slider">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>500 sq ft</span>
+                            <span>10,000 sq ft</span>
+                            <span>20,000 sq ft</span>
+                        </div>
+                    </div>
+
+                    <!-- Quality Tier -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-200 mb-3">3. Construction Quality Standard</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" onclick="setQualityTier(1.0)" id="btn-quality-standard" class="calc-quality-btn p-3 rounded-xl border border-gray-700 bg-gray-900 text-gray-300 font-semibold text-xs sm:text-sm text-center transition">
+                                Standard
+                            </button>
+                            <button type="button" onclick="setQualityTier(1.35)" id="btn-quality-premium" class="calc-quality-btn p-3 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400 font-semibold text-xs sm:text-sm text-center transition">
+                                Premium
+                            </button>
+                            <button type="button" onclick="setQualityTier(1.75)" id="btn-quality-luxury" class="calc-quality-btn p-3 rounded-xl border border-gray-700 bg-gray-900 text-gray-300 font-semibold text-xs sm:text-sm text-center transition">
+                                Ultra Luxury
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add-on Services -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-200 mb-3">4. Optional Project Add-ons</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-3 p-3 bg-gray-900 rounded-xl border border-gray-700 cursor-pointer hover:border-gray-600 transition">
+                                <input type="checkbox" id="addon-blueprint" onchange="updateCalculator()" class="w-4 h-4 text-amber-500 bg-gray-800 border-gray-600 rounded focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm text-gray-300">Architectural Blueprints (+$12,500)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-gray-900 rounded-xl border border-gray-700 cursor-pointer hover:border-gray-600 transition">
+                                <input type="checkbox" id="addon-landscape" onchange="updateCalculator()" class="w-4 h-4 text-amber-500 bg-gray-800 border-gray-600 rounded focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm text-gray-300">Exterior Landscaping (+$18,000)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-gray-900 rounded-xl border border-gray-700 cursor-pointer hover:border-gray-600 transition">
+                                <input type="checkbox" id="addon-interior" onchange="updateCalculator()" class="w-4 h-4 text-amber-500 bg-gray-800 border-gray-600 rounded focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm text-gray-300">Interior Fit-out & Design (+$25,000)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 bg-gray-900 rounded-xl border border-gray-700 cursor-pointer hover:border-gray-600 transition">
+                                <input type="checkbox" id="addon-smart" onchange="updateCalculator()" class="w-4 h-4 text-amber-500 bg-gray-800 border-gray-600 rounded focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm text-gray-300">Smart Home Automation (+$15,000)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Live Results Summary -->
+                <div class="lg:col-span-5 bg-gradient-to-b from-gray-800 to-gray-900 p-6 sm:p-8 rounded-2xl border-2 border-amber-500/60 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between pb-4 border-b border-gray-700 mb-6">
+                            <h3 class="text-lg font-extrabold text-white">Estimated Cost Summary</h3>
+                            <span class="bg-amber-500/20 text-amber-400 text-xs px-2.5 py-1 rounded-full font-bold uppercase">Live Quote</span>
+                        </div>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex justify-between text-sm text-gray-300">
+                                <span>Base Structure Cost:</span>
+                                <span class="font-semibold text-white" id="calc-base-cost">$300,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-300">
+                                <span>Quality Standard Multiplier:</span>
+                                <span class="font-semibold text-white" id="calc-quality-val">Premium (x1.35)</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-300">
+                                <span>Selected Add-ons Total:</span>
+                                <span class="font-semibold text-white" id="calc-addons-cost">$0</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-300">
+                                <span>Permit & Management Fees (Est.):</span>
+                                <span class="font-semibold text-white" id="calc-fees-cost">$15,000</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-950/80 p-6 rounded-xl border border-gray-800 text-center mb-6">
+                            <span class="text-xs text-gray-400 uppercase tracking-widest font-bold block mb-1">Total Estimated Investment</span>
+                            <div class="text-3xl sm:text-4xl font-black text-amber-400" id="calc-total-display">$420,000</div>
+                            <span class="text-[11px] text-gray-500 mt-1 block">*Prices are approximate. Final proposal subject to blueprint inspection.</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" onclick="transferEstimateToForm()" class="w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-black py-4 rounded-xl text-center shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+                        Lock In This Estimate <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Gallery Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-amber-600 font-extrabold text-sm uppercase tracking-widest mb-2">Our Portfolio</h2>
+                <p class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Showcase of Completed Projects</p>
+                <div class="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="filterProjects('all')" class="project-filter-btn active bg-amber-500 text-gray-950 font-bold px-5 py-2 rounded-full text-sm shadow transition">All Projects</button>
+                <button onclick="filterProjects('commercial')" class="project-filter-btn bg-white hover:bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full text-sm border border-gray-200 transition">Commercial</button>
+                <button onclick="filterProjects('residential')" class="project-filter-btn bg-white hover:bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full text-sm border border-gray-200 transition">Residential</button>
+                <button onclick="filterProjects('renovation')" class="project-filter-btn bg-white hover:bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full text-sm border border-gray-200 transition">Renovation</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card commercial bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative overflow-hidden group h-64">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Skyline Commercial Tower" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gray-950/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openProjectModal('skyline')" class="bg-amber-500 text-gray-950 font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                                <i class="fa-solid fa-eye"></i> View Details
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-gray-900/80 backdrop-blur-md text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Commercial</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Apex Tech Skyscraper</h3>
+                            <p class="text-gray-600 text-sm mb-4">42-story commercial corporate headquarters featuring glass-curtain exterior & LEED certification.</p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-4 flex justify-between text-xs text-gray-500 font-medium">
+                            <span><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Downtown Hub</span>
+                            <span><i class="fa-solid fa-ruler text-amber-500 mr-1"></i> 180,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card residential bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative overflow-hidden group h-64">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Modern Villa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gray-950/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openProjectModal('villa')" class="bg-amber-500 text-gray-950 font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                                <i class="fa-solid fa-eye"></i> View Details
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-gray-900/80 backdrop-blur-md text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Residential</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Grand Horizon Villa</h3>
+                            <p class="text-gray-600 text-sm mb-4">Luxury custom multi-level residential estate equipped with infinity pool and smart automation.</p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-4 flex justify-between text-xs text-gray-500 font-medium">
+                            <span><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Ocean Heights</span>
+                            <span><i class="fa-solid fa-ruler text-amber-500 mr-1"></i> 8,500 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card renovation bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative overflow-hidden group h-64">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Industrial Office Renovation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gray-950/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openProjectModal('office')" class="bg-amber-500 text-gray-950 font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                                <i class="fa-solid fa-eye"></i> View Details
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-gray-900/80 backdrop-blur-md text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Renovation</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Heritage Warehouse Transformation</h3>
+                            <p class="text-gray-600 text-sm mb-4">Complete retrofit converting a century-old industrial site into modern creative workspace hubs.</p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-4 flex justify-between text-xs text-gray-500 font-medium">
+                            <span><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Arts District</span>
+                            <span><i class="fa-solid fa-ruler text-amber-500 mr-1"></i> 24,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Workflow Section -->
+    <section id="process" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-500 font-extrabold text-sm uppercase tracking-widest mb-2">How We Deliver</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white tracking-tight">Our Proven Construction Workflow</p>
+                <div class="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/80 relative flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-amber-500 text-gray-950 font-black text-2xl rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+                        01
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Consultation & Planning</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        In-depth initial consultation to evaluate site feasibility, client goals, initial budgeting, and architectural vision.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/80 relative flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-amber-500 text-gray-950 font-black text-2xl rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+                        02
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Blueprints & Permits</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Developing CAD blueprints, structural engineering specs, securing municipal permits, and final contract sign-off.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/80 relative flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-amber-500 text-gray-950 font-black text-2xl rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+                        03
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Precision Execution</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        On-site groundbreaking, foundation laying, steel framework, structural buildout, and continuous quality assurance audits.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/80 relative flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-amber-500 text-gray-950 font-black text-2xl rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+                        04
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Handover & Warranty</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Final multi-point quality inspection, client walkthrough, key handover, and ongoing structural warranty support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Contact Form Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Information -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="text-amber-600 font-extrabold text-sm uppercase tracking-widest mb-2">Get In Touch</h2>
+                        <p class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Let's Build Something Exceptional Together</p>
+                        <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                            Have an upcoming project or need a custom quote? Fill out the form or reach out directly to speak with our engineering directors.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Headquarters Office</h4>
+                                <p class="text-gray-600 text-sm">742 Construction Parkway, Suite 500<br>Metropolis City, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Direct Line</h4>
+                                <p class="text-gray-600 text-sm">+1 (800) 555-0199 / +1 (212) 555-0188</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Email Inquiries</h4>
+                                <p class="text-gray-600 text-sm">estimates@buildpro-construct.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-gray-100">
+                    <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Request A Project Quote</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Full Name *</label>
+                                <input type="text" id="form-name" required placeholder="John Doe" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Email Address *</label>
+                                <input type="email" id="form-email" required placeholder="john@example.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Phone Number *</label>
+                                <input type="tel" id="form-phone" required placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Project Type *</label>
+                                <select id="form-project-type" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm">
+                                    <option value="Commercial Building">Commercial Building</option>
+                                    <option value="Residential Home">Residential Home</option>
+                                    <option value="Renovation & Remodel">Renovation & Remodel</option>
+                                    <option value="Civil Infrastructure">Civil Infrastructure</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Budget Range</label>
+                            <select id="form-budget" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm">
+                                <option value="$100k - $250k">$100,000 - $250,000</option>
+                                <option value="$250k - $500k" selected>$250,000 - $500,000</option>
+                                <option value="$500k - $1M">$500,000 - $1,000,000</option>
+                                <option value="$1M+">$1,000,000+</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Project Details & Location *</label>
+                            <textarea id="form-details" rows="4" required placeholder="Describe your site location, timeline expectations, and specific architectural requirements..." class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:bg-white outline-none transition text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-black py-4 rounded-xl shadow-lg transition transform active:scale-98 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Quotation Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & FAQs Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Testimonials Grid -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-amber-600 font-extrabold text-sm uppercase tracking-widest mb-2">Client Reviews</h2>
+                <p class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Trusted By Industry Leaders</p>
+                <div class="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic text-sm mb-6 leading-relaxed">
+                            "BuildPro completed our 12-story corporate headquarters two weeks ahead of schedule and precisely on budget. Outstanding project management!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 bg-amber-500 text-gray-950 font-bold rounded-full flex items-center justify-center">RM</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Robert Miller</h4>
+                            <span class="text-xs text-gray-500">CEO, Apex Logistics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic text-sm mb-6 leading-relaxed">
+                            "The level of craftsmanship in our residential villa is breathtaking. From blueprints to key handover, their transparency was refreshing."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 bg-amber-500 text-gray-950 font-bold rounded-full flex items-center justify-center">EA</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Elena Adams</h4>
+                            <span class="text-xs text-gray-500">Homeowner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic text-sm mb-6 leading-relaxed">
+                            "BuildPro handled our complex warehouse structural retrofit flawlessly. Their safety compliance standard is the best in the state."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 bg-amber-500 text-gray-950 font-bold rounded-full flex items-center justify-center">DK</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">David Kim</h4>
+                            <span class="text-xs text-gray-500">Operations Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQs Accordion -->
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">Frequently Asked Questions</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 transition">
+                            <span>How long does a typical commercial or residential project take?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-1" class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                            Project timelines vary based on square footage and structural complexity. Residential custom homes generally require 6 to 10 months, while commercial developments can range from 10 to 18 months. An accurate timeline is established during step 2 of our process.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 transition">
+                            <span>Are municipal permits and city approvals handled by BuildPro?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-2" class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                            Yes. We handle 100% of the permitting process, city plan submissions, zoning compliance approvals, and environmental impact assessments on behalf of our clients.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 transition">
+                            <span>Do you provide warranties on structural work?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-3" class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                            Absolutely. We offer a comprehensive 10-year structural guarantee on new buildings and a 2-year warranty on interior finishings and mechanical installations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-950 text-gray-400 pt-16 pb-8 border-t border-gray-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: About -->
+                <div>
+                    <a href="#home" class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center text-gray-950 font-extrabold text-xl">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <span class="text-xl font-black text-white">BUILD<span class="text-amber-500">PRO</span></span>
+                    </a>
+                    <p class="text-sm leading-relaxed text-gray-400 mb-6">
+                        Leading general contracting and engineering firm delivering commercial, industrial, and residential architectural landmarks.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 bg-gray-900 hover:bg-amber-500 hover:text-gray-950 text-gray-300 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 bg-gray-900 hover:bg-amber-500 hover:text-gray-950 text-gray-300 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-9 h-9 bg-gray-900 hover:bg-amber-500 hover:text-gray-950 text-gray-300 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-amber-500 transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-amber-500 transition">Services</a></li>
+                        <li><a href="#calculator" class="hover:text-amber-500 transition">Cost Calculator</a></li>
+                        <li><a href="#projects" class="hover:text-amber-500 transition">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-amber-500 transition">Request Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider">Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#services" class="hover:text-amber-500 transition">Commercial Construction</a></li>
+                        <li><a href="#services" class="hover:text-amber-500 transition">Residential Architecture</a></li>
+                        <li><a href="#services" class="hover:text-amber-500 transition">Renovation & Fit-Outs</a></li>
+                        <li><a href="#services" class="hover:text-amber-500 transition">Civil Infrastructure</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Subscribe for architectural trends and industry updates.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-3">
+                        <input type="email" required placeholder="Enter your email" class="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500">
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold py-3 rounded-xl text-sm transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 BuildPro Construction & Engineering Corp. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-400">Safety Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top Button -->
+        <a href="#home" class="fixed bottom-6 right-6 bg-amber-500 hover:bg-amber-400 text-gray-950 w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 z-30">
+            <i class="fa-solid fa-arrow-up text-lg font-bold"></i>
+        </a>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in max-h-[90vh] overflow-y-auto">
+            <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="service-modal-body">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Success Summary Modal -->
+    <div id="quote-modal" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-8 text-center relative shadow-2xl">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-900 mb-2">Quote Request Received!</h3>
+            <p class="text-gray-600 text-sm mb-6">Thank you for choosing BuildPro. Here is your reference summary:</p>
+            
+            <div class="bg-gray-50 p-4 rounded-xl text-left space-y-2 text-xs sm:text-sm text-gray-700 mb-6 border border-gray-200" id="quote-summary-content">
+                <!-- Dynamically Populated -->
+            </div>
+
+            <button onclick="closeQuoteModal()" class="w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold py-3 rounded-xl transition">
+                Close & Return
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // ----------------------------------------------------
+        // MOBILE MENU TOGGLE
+        // ----------------------------------------------------
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ----------------------------------------------------
+        // COST CALCULATOR LOGIC
+        // ----------------------------------------------------
+        let calcState = {
+            baseRate: 120, // $/sqft
+            area: 2500,
+            qualityMultiplier: 1.35,
+            addons: {
+                blueprint: false,
+                landscape: false,
+                interior: false,
+                smart: false
+            }
+        };
+
+        function setProjectType(type, rate) {
+            calcState.baseRate = rate;
+            
+            document.querySelectorAll('.calc-type-btn').forEach(btn => {
+                btn.classList.remove('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+                btn.classList.add('border-gray-700', 'bg-gray-900', 'text-gray-300');
+            });
+
+            const activeBtn = document.getElementById(`btn-type-${type}`);
+            activeBtn.classList.remove('border-gray-700', 'bg-gray-900', 'text-gray-300');
+            activeBtn.classList.add('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+
+            updateCalculator();
+        }
+
+        function setQualityTier(multiplier) {
+            calcState.qualityMultiplier = multiplier;
+
+            document.querySelectorAll('.calc-quality-btn').forEach(btn => {
+                btn.classList.remove('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+                btn.classList.add('border-gray-700', 'bg-gray-900', 'text-gray-300');
+            });
+
+            if(multiplier === 1.0) {
+                document.getElementById('btn-quality-standard').classList.add('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+                document.getElementById('calc-quality-val').innerText = 'Standard (x1.0)';
+            } else if(multiplier === 1.35) {
+                document.getElementById('btn-quality-premium').classList.add('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+                document.getElementById('calc-quality-val').innerText = 'Premium (x1.35)';
+            } else {
+                document.getElementById('btn-quality-luxury').classList.add('border-amber-500', 'bg-amber-500/10', 'text-amber-400');
+                document.getElementById('calc-quality-val').innerText = 'Ultra Luxury (x1.75)';
+            }
+
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const areaInput = document.getElementById('calc-area').value;
+            calcState.area = parseInt(areaInput);
+            
+            document.getElementById('area-val-display').innerText = calcState.area.toLocaleString() + ' sq ft';
+
+            // Calculate Add-ons
+            let addonsTotal = 0;
+            if(document.getElementById('addon-blueprint').checked) addonsTotal += 12500;
+            if(document.getElementById('addon-landscape').checked) addonsTotal += 18000;
+            if(document.getElementById('addon-interior').checked) addonsTotal += 25000;
+            if(document.getElementById('addon-smart').checked) addonsTotal += 15000;
+
+            const baseCost = calcState.area * calcState.baseRate;
+            const structuralCost = baseCost * calcState.qualityMultiplier;
+            const fees = structuralCost * 0.05;
+            const grandTotal = structuralCost + addonsTotal + fees;
+
+            // DOM Updates
+            document.getElementById('calc-base-cost').innerText = '$' + Math.round(baseCost).toLocaleString();
+            document.getElementById('calc-addons-cost').innerText = '$' + addonsTotal.toLocaleString();
+            document.getElementById('calc-fees-cost').innerText = '$' + Math.round(fees).toLocaleString();
+            document.getElementById('calc-total-display').innerText = '$' + Math.round(grandTotal).toLocaleString();
+        }
+
+        function transferEstimateToForm() {
+            const total = document.getElementById('calc-total-display').innerText;
+            const details = document.getElementById('form-details');
+            details.value = `Includes calculator estimate of ${total} for ${calcState.area} sq ft project. Additional notes: `;
+        }
+
+        // ----------------------------------------------------
+        // PROJECT GALLERY FILTER
+        // ----------------------------------------------------
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.project-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-gray-950');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            event.target.classList.remove('bg-white', 'text-gray-700');
+            event.target.classList.add('bg-amber-500', 'text-gray-950');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ----------------------------------------------------
+        // MODALS & SERVICES DETAIL
+        // ----------------------------------------------------
+        const serviceData = {
+            commercial: {
+                title: "Commercial Construction",
+                icon: "fa-building",
+                description: "Our commercial construction team delivers high-performance corporate headquarters, logistics centers, and retail parks built for heavy footprint operations.",
+                features: ["LEED Certified Green Building", "Advanced Structural Steel Framing", "Seismic Isolation Systems", "Integrated HVAC & Fire Safety"]
+            },
+            residential: {
+                title: "Residential Architecture",
+                icon: "fa-house-chimney",
+                description: "Creating custom modern residential estates tailored to unique lifestyle visions with emphasis on light, space, and high-end natural finishes.",
+                features: ["Custom Architectural Blueprints", "Smart Home Integration", "Energy-Efficient Envelopes", "Custom Swimming Pools & Landscaping"]
+            },
+            renovation: {
+                title: "Interior Renovation & Fit-Outs",
+                icon: "fa-paint-roller",
+                description: "Transforming dated structures into high-value modern interiors with minimal downtime for ongoing operations.",
+                features: ["Structural Retrofitting", "Acoustic Insulation", "Custom Cabinetry & Millwork", "Mechanical & Electrical Upgrades"]
+            },
+            civil: {
+                title: "Civil & Infrastructure",
+                icon: "fa-bridge",
+                description: "Heavy civil capabilities ensuring rock-solid foundations, retainment walls, and site development.",
+                features: ["Deep Foundation Piling", "Soil Stabilization", "Stormwater Infrastructure", "Concrete Paving & Asphalt"]
+            },
+            management: {
+                title: "Smart Project Management",
+                icon: "fa-diagram-project",
+                description: "Comprehensive site oversight utilizing BIM (Building Information Modeling) and real-time budget auditing.",
+                features: ["BIM 3D Modeling", "Supply Chain Optimization", "Safety Compliance Audits", "Turnkey Handover"]
+            },
+            steel: {
+                title: "Blueprints & Steel Structure",
+                icon: "fa-ruler-combined",
+                description: "Pre-engineered structural steel drafting and erection built to exceed regional safety loads.",
+                features: ["3D CAD Structural Stress Test", "Heavy Steel Frame Erection", "Seismic Load Compliance", "Precision Fabrication"]
+            }
+        };
+
+        function openServiceModal(key) {
+            const item = serviceData[key];
+            if (!item) return;
+
+            const modalBody = document.getElementById('service-modal-body');
+            modalBody.innerHTML = `
+                <div class="w-14 h-14 bg-amber-500/10 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid ${item.icon}"></i>
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-3">${item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">${item.description}</p>
+                <h4 class="font-bold text-gray-900 text-sm mb-3">Key Capabilities:</h4>
+                <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                    ${item.features.map(f => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> ${f}</li>`).join('')}
+                </ul>
+                <a href="#contact" onclick="closeServiceModal()" class="block w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold py-3 rounded-xl text-center transition">
+                    Request Consultation
+                </a>
+            `;
+
+            document.getElementById('service-modal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('service-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function openProjectModal(type) {
+            alert(`Project Spec sheet for ${type.toUpperCase()} is available on request. Contact our architectural team for full CAD files.`);
+        }
+
+        // ----------------------------------------------------
+        // FAQ ACCORDION TOGGLE
+        // ----------------------------------------------------
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // ----------------------------------------------------
+        // FORM SUBMISSION & QUOTE GENERATOR
+        // ----------------------------------------------------
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const projectType = document.getElementById('form-project-type').value;
+            const budget = document.getElementById('form-budget').value;
+            const refNo = "BP-" + Math.floor(100000 + Math.random() * 900000);
+
+            const summary = document.getElementById('quote-summary-content');
+            summary.innerHTML = `
+                <div><strong>Ref Number:</strong> <span class="text-amber-600">${refNo}</span></div>
+                <div><strong>Client Name:</strong> ${name}</div>
+                <div><strong>Email:</strong> ${email}</div>
+                <div><strong>Project Category:</strong> ${projectType}</div>
+                <div><strong>Selected Budget Range:</strong> ${budget}</div>
+                <div><strong>Status:</strong> <span class="text-green-600 font-semibold">Assigned to Senior Engineer</span></div>
+            `;
+
+            document.getElementById('quote-modal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+            document.getElementById('quote-form').reset();
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to BuildPro engineering updates!');
+            e.target.reset();
+        }
+
+        // Initialize calculator values on load
+        window.onload = function() {
+            updateCalculator();
+        };
+    </script>
+</body>
+</html>
